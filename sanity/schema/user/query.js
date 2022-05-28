@@ -3,7 +3,7 @@ export const GET_ALL_USER = `
         _id,
         _createdAt,
         _updatedAt,
-        username,
+        "name": username,
         birthday,
         image
     }

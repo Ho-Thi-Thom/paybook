@@ -1,50 +1,58 @@
 import { View, SafeAreaView, FlatList, StyleSheet } from "react-native";
 import React from "react";
-import { useQuery } from "../../hooks";
-import { GET_ALL_USER } from "../../sanity/schema/user/query";
-import Input from "./components/Input";
+import { useQuery } from "~/hooks";
+import { GET_ALL_USER } from "~/sanity/schema/user/query";
+import { Input } from "~/components";
+import BubbleLayout from "~/Layout/BubbleLayout";
+import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+import { Octicons } from "@expo/vector-icons";
+
+const list = [
+  {
+    id: "1",
+    name: "Cho vay",
+    color: "#3B82F6",
+    icon: () => <MaterialIcons name="attach-money" size={50} color="#3B82F6" />,
+  },
+  {
+    id: "2",
+    name: "Vay",
+    color: "#FF3355",
+    icon: () => (
+      <MaterialCommunityIcons
+        name="hand-coin-outline"
+        size={50}
+        color="#FF3355"
+      />
+    ),
+  },
+  {
+    id: "3",
+    name: "Tài khoản",
+    color: "#FFA566",
+    icon: () => <Feather name="user" size={50} color="#FFA566" />,
+  },
+  {
+    id: "4",
+    name: "Thống kê",
+    color: "violet",
+    icon: () => <AntDesign name="linechart" size={50} color="violet" />,
+  },
+  {
+    id: "5",
+    name: "Lịch sử",
+    color: "#071A68",
+    icon: () => <Octicons name="history" size={50} color="#071A68" />,
+  },
+];
+
 const Home = () => {
   const { data: userData } = useQuery(GET_ALL_USER);
-  const list = [
-    {
-      id: "1",
-      name: "Cho vay",
-      image: "loan.png",
-      background: "#56C222",
-      color: "#B20093",
-    },
-    {
-      id: "2",
-      name: "Vay",
-      image: "hand.png",
-      background: "#FF2531",
-      color: "#02AFAE",
-    },
-    {
-      id: "3",
-      name: "Tài khoản",
-      image: "group.png",
-      background: "#5188CA",
-      color: "#FFA566",
-    },
-    {
-      id: "4",
-      name: "Thống kê",
-      image: "bar_chart.png",
-      background: "#8366B4",
-      color: "#FCF471",
-    },
-    {
-      id: "5",
-      name: "Lịch sử",
-      image: "clock.png",
-      background: "#CCCCCC",
-      color: "#071A68",
-    },
-  ];
-  console.log(userData);
   return (
-    <View style={styles.view}>
+    <BubbleLayout>
       <SafeAreaView>
         <FlatList
           data={list}
@@ -53,16 +61,8 @@ const Home = () => {
           numColumns={2}
         />
       </SafeAreaView>
-    </View>
+    </BubbleLayout>
   );
 };
 
 export default Home;
-const styles = StyleSheet.create({
-  view: {
-    paddingTop: 25,
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});

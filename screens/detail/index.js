@@ -1,12 +1,13 @@
-import { View, Text, SafeAreaView } from "react-native";
+import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import React from "react";
 
-const Detail = () => {
+const Detail = ({ navigation, route }) => {
+  console.log(route.params);
   return (
-    <View style={{ paddingTop: 20 }}>
-      <SafeAreaView>
+    <View>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
         <Text>Detail</Text>
-      </SafeAreaView>
+      </TouchableOpacity>
     </View>
   );
 };

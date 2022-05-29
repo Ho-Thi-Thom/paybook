@@ -1,28 +1,26 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { urlFor } from "~/sanity/config";
 
 const Input = ({ item }) => {
   return (
-    <TouchableOpacity onPress={() => console.log("hello")}>
-      <View style={styles.view}>
-        <View style={styles.icon}>
-          {item.image && (
-            <Image
-              source={
-                typeof item.image === "number"
-                  ? item.image
-                  : { uri: urlFor(item.image) }
-              }
-              style={styles.tinyLogo}
-            />
-          )}
-          {item.icon && item.icon()}
-        </View>
-        <View style={styles.textview}>
-          <Text style={[styles.text, { color: item.color }]}>{item.name}</Text>
-        </View>
+    <View style={styles.view}>
+      <View style={styles.icon}>
+        {item.image && (
+          <Image
+            source={
+              typeof item.image === "number"
+                ? item.image
+                : { uri: urlFor(item.image) }
+            }
+            style={styles.tinyLogo}
+          />
+        )}
+        {item.icon && item.icon()}
       </View>
-    </TouchableOpacity>
+      <View style={styles.textview}>
+        <Text style={[styles.text, { color: item.color }]}>{item.name}</Text>
+      </View>
+    </View>
   );
 };
 

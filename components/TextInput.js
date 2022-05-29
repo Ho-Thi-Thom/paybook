@@ -7,7 +7,7 @@ import {
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 
-const TextInput = ({ placeholder }) => {
+const TextInput = ({ placeholder, onChange, value, onClear }) => {
   return (
     <View style={styles.container}>
       <Ionicons
@@ -16,12 +16,19 @@ const TextInput = ({ placeholder }) => {
         color="#FF1C52"
         style={styles.icon}
       />
-      <TextInputRn style={styles.text} placeholder={placeholder} />
-      <View style={styles.close}>
-        <TouchableOpacity>
-          <Ionicons name="close-outline" size={24} color="#777" />
-        </TouchableOpacity>
-      </View>
+      <TextInputRn
+        style={styles.text}
+        placeholder={placeholder}
+        onChangeText={onChange}
+        value={value}
+      />
+      {value !== "" && (
+        <View style={styles.close}>
+          <TouchableOpacity onPress={onClear}>
+            <Ionicons name="close-outline" size={24} color="#777" />
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };

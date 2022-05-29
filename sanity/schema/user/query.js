@@ -1,5 +1,5 @@
 export const GET_ALL_USER = `
-    *[_type == 'user'] {
+    *[_type == 'user' && username match $search] {
         _id,
         _createdAt,
         _updatedAt,

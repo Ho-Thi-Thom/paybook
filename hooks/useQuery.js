@@ -1,9 +1,10 @@
 import client from "../sanity/config";
 import { useEffect, useState, useCallback } from "react";
 
-const useQuery = (query, params = {}) => {
+const useQuery = (query, options = {}) => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [params, setParams] = useState(options);
 
   const refetch = useCallback(async () => {
     setLoading(true);
@@ -15,13 +16,13 @@ const useQuery = (query, params = {}) => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [params]);
 
   useEffect(() => {
     refetch();
-  }, []);
+  }, [refetch]);
 
-  return { data, loading, refetch };
+  return { data, loading, setParams };
 };
 
 export default useQuery;

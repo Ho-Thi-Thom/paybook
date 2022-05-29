@@ -49,7 +49,7 @@ const list = [
   },
 ];
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const { data: userData } = useQuery(GET_ALL_USER);
   return (
     <BubbleLayout>

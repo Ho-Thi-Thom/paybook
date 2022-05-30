@@ -5,6 +5,10 @@ export const GET_ALL_USER = `
         _updatedAt,
         "name": username,
         birthday,
-        image
+        image,
+        facebook,
+        gmail,
+        phone,
+        zalo
     }
 `;

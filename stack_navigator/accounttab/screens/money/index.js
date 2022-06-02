@@ -1,6 +1,7 @@
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, TouchableNativeFeedback } from "react-native";
 import React from "react";
-import Card from "../component/card";
+import Card from "../../component/card";
+import { width } from "~/utils/screen";
 const info = [
   {
     id: "1",
@@ -99,7 +100,7 @@ const info = [
     pay_day: "2022-05-30",
   },
 ];
-const Infor_loan = ({ id }) => {
+const Infor_money = ({ id }) => {
   console.log(id);
   return (
     <View>
@@ -112,4 +113,4 @@ const Infor_loan = ({ id }) => {
   );
 };
 
-export default Infor_loan;
+export default Infor_money;

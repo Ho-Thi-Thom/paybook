@@ -28,7 +28,7 @@ const Account = ({ navigation }) => {
   } = useQuery(GET_ALL_USER, { search: "*" });
   const [searchText, setSearchText] = useState("");
 
-  // console.log("=========" + JSON.stringify(userData));
+  console.log("=========" + JSON.stringify(userData));
 
   const [value] = useDebounce(searchText.toLowerCase().trim(), 800);
 

@@ -13,8 +13,8 @@ import {
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
 import { urlFor } from "~/sanity/config";
-import Infor_loan from "./screens/infor_loan";
-import Infor_money from "./screens/infor_money";
+import Infor_loan from "./screens/loan";
+import Infor_money from "./screens/money";
 import Other from "./screens/other";
 
 const TopTab = createMaterialTopTabNavigator();
@@ -145,14 +145,14 @@ const AccountTab = (props) => {
             options={{
               tabBarLabel: "Cho Vay",
             }}
-            component={() => <Infor_money {...props} />}
+            component={() => <Infor_money id={route.params._id} />}
           />
           <TopTab.Screen
             name="AccountDetail2"
             options={{
               tabBarLabel: "Tùy chọn",
             }}
-            component={() => <Other {...props} />}
+            component={() => <Other id={route.params._id} />}
           />
         </TopTab.Navigator>
       </View>

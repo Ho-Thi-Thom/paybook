@@ -7,14 +7,13 @@ const Card = ({ item }) => {
     <View
       style={{
         flex: 1,
-        marginBottom: 4,
-        paddingVertical: 7,
+        paddingVertical: 14,
         paddingHorizontal: 7,
-        marginHorizontal: 5,
+        marginLeft: 5,
         flexDirection: "row",
         marginBottom: 12,
         borderRadius: 8,
-        backgroundColor: "rgba(255, 255, 255, 0.4)",
+        backgroundColor: "rgba(255, 255, 255, 1)",
         alignItems: "center",
       }}
     >

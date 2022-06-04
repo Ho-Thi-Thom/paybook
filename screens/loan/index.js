@@ -1,7 +1,7 @@
 import { View, FlatList } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Card, Modal } from "~/components";
+import { CardMoney } from "~/components";
 
 const info = [
   {
@@ -112,7 +112,7 @@ const InforLoan = ({ route, navigation }) => {
               navigation.navigate("Detail", { ...item });
             }}
           >
-            <Card item={item} />
+            <CardMoney item={item} />
           </TouchableOpacity>
         )}
         keyExtractor={(item) => item.id}

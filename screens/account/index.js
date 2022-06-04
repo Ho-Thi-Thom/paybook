@@ -8,7 +8,7 @@ import {
 import React, { useState, useEffect } from "react";
 import { useQuery } from "~/hooks";
 import { GET_ALL_USER } from "~/sanity/schema/user/query";
-import { Input, TextInput } from "~/components";
+import { CardImage, TextInput } from "~/components";
 import BubbleLayout from "~/Layout/BubbleLayout";
 import { AntDesign } from "@expo/vector-icons";
 import { width } from "~/utils/screen";
@@ -68,7 +68,7 @@ const Account = ({ navigation }) => {
               })
             }
           >
-            <Input item={item} />
+            <CardImage item={item} />
           </TouchableOpacity>
         )}
         keyExtractor={(item) => item._id}

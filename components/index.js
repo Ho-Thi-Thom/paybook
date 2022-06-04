@@ -1,4 +1,4 @@
-export { default as Input } from "./Input";
+export { default as CardImage } from "./CardImage";
 export { default as TextInput } from "./TextInput";
-export { default as Card } from "./Card";
+export { default as CardMoney } from "./CardMoney";
 export { default as Modal } from "./Modal";

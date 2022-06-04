@@ -9,6 +9,8 @@ import React, { useState } from "react";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import DatePicker from "@react-native-community/datetimepicker";
 import moment from "moment";
+import LoanInput from "./LoanInput";
+import LoanDate from "./LoanDate";
 
 const Modal = ({ route, navigation }) => {
   const data = route.params;
@@ -41,42 +43,23 @@ const Modal = ({ route, navigation }) => {
         </View>
       </View>
       <View style={styles.content}>
-        <Text style={styles.title}>Nội dung</Text>
-        <TextInput style={styles.textTitle}>{data.title}</TextInput>
-        <Text style={styles.title}>Chi tiết</Text>
-        <TextInput style={[styles.textTitle, { height: 100 }]}>
-          {data.description}
-        </TextInput>
-        <Text style={styles.title}>Số tiền</Text>
-        <TextInput style={styles.textTitle}>{data.description}</TextInput>
-        <Text style={styles.title}>Ngày lập</Text>
-        <View style={styles.viewDate}>
-          <Text style={styles.textDate}>
-            {moment(date.debt_date).format("DD/MM/YYYY")}
-          </Text>
-          <TouchableOpacity
-            onPress={() =>
-              setShow({ open: true, value: date.debt_date, key: "debt_date" })
-            }
-            style={styles.TouchableOpacity}
-          >
-            <MaterialIcons name="date-range" size={24} color="black" />
-          </TouchableOpacity>
-        </View>
-        <Text style={styles.title}>Ngày hẹn</Text>
-        <View style={styles.viewDate}>
-          <Text style={styles.textDate}>
-            {moment(date.pay_date).format("DD/MM/YYYY")}
-          </Text>
-          <TouchableOpacity
-            onPress={() =>
-              setShow({ open: true, value: date.pay_date, key: "pay_date" })
-            }
-            style={styles.TouchableOpacity}
-          >
-            <MaterialIcons name="date-range" size={24} color="black" />
-          </TouchableOpacity>
-        </View>
+        <LoanInput title="Nội dung" value={data.title} />
+        <LoanInput title="Chi tiết" value={data.description} multiline />
+        <LoanInput title="Số tiền" value={data.money} />
+        <LoanDate
+          title="Ngày hẹn"
+          date={date.debt_date}
+          onPress={() =>
+            setShow({ open: true, value: date.debt_date, key: "debt_date" })
+          }
+        />
+        <LoanDate
+          title="Ngày trả"
+          date={date.pay_date}
+          onPress={() =>
+            setShow({ open: true, value: date.pay_date, key: "pay_date" })
+          }
+        />
       </View>
       {show.open && (
         <DatePicker

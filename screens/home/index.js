@@ -1,14 +1,16 @@
-import { View, SafeAreaView, FlatList, StyleSheet } from "react-native";
+import { SafeAreaView, FlatList } from "react-native";
 import React from "react";
 import { useQuery } from "~/hooks";
 import { GET_ALL_USER } from "~/sanity/schema/user/query";
-import { Input } from "~/components";
+import { CardImage } from "~/components";
 import BubbleLayout from "~/Layout/BubbleLayout";
-import { MaterialIcons } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
-import { Octicons } from "@expo/vector-icons";
+import {
+  Feather,
+  MaterialCommunityIcons,
+  MaterialIcons,
+  AntDesign,
+  Octicons,
+} from "@expo/vector-icons";
 
 const list = [
   {
@@ -56,7 +58,7 @@ const Home = ({ navigation }) => {
       <SafeAreaView>
         <FlatList
           data={list}
-          renderItem={({ item }) => <Input item={item} />}
+          renderItem={({ item }) => <CardImage item={item} />}
           keyExtractor={(item) => item.id}
           numColumns={2}
         />

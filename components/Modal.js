@@ -2,8 +2,8 @@ import {
   View,
   Text,
   StyleSheet,
-  TextInput,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import React, { useState } from "react";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
@@ -42,25 +42,27 @@ const Modal = ({ route, navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.content}>
-        <LoanInput title="Nội dung" value={data.title} />
-        <LoanInput title="Chi tiết" value={data.description} multiline />
-        <LoanInput title="Số tiền" value={data.money} />
-        <LoanDate
-          title="Ngày hẹn"
-          date={date.debt_date}
-          onPress={() =>
-            setShow({ open: true, value: date.debt_date, key: "debt_date" })
-          }
-        />
-        <LoanDate
-          title="Ngày trả"
-          date={date.pay_date}
-          onPress={() =>
-            setShow({ open: true, value: date.pay_date, key: "pay_date" })
-          }
-        />
-      </View>
+      <ScrollView>
+        <View style={styles.content}>
+          <LoanInput title="Nội dung" value={data.title} />
+          <LoanInput title="Chi tiết" value={data.description} multiline />
+          <LoanInput title="Số tiền" value={data.money} />
+          <LoanDate
+            title="Ngày hẹn"
+            date={date.debt_date}
+            onPress={() =>
+              setShow({ open: true, value: date.debt_date, key: "debt_date" })
+            }
+          />
+          <LoanDate
+            title="Ngày trả"
+            date={date.pay_date}
+            onPress={() =>
+              setShow({ open: true, value: date.pay_date, key: "pay_date" })
+            }
+          />
+        </View>
+      </ScrollView>
       {show.open && (
         <DatePicker
           testID="dateTimePicker"

@@ -3,8 +3,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import "react-native-gesture-handler";
-import MainTab from "./stack_navigator/maintab";
-import AccountTab from "./stack_navigator/accounttab/accounttab";
+import { AccountTab, MainTab } from "./stack_navigator";
 
 const Stack = createStackNavigator();
 function App() {

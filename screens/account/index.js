@@ -60,7 +60,13 @@ const Account = ({ navigation }) => {
         data={[addUser, ...userData]}
         renderItem={({ item }) => (
           <TouchableOpacity
-            onPress={() => navigation.navigate("AccountTab", { ...item })}
+            onPress={() =>
+              navigation.navigate("AccountTab", {
+                ...item,
+                screen: "Loan",
+                params: { ...item },
+              })
+            }
           >
             <Input item={item} />
           </TouchableOpacity>

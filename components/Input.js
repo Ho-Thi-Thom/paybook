@@ -25,6 +25,7 @@ const Input = ({ item }) => {
 };
 
 export default Input;
+
 const styles = StyleSheet.create({
   view: {
     margin: 5,

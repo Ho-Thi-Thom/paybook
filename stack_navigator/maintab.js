@@ -2,7 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Home, Account, Detail } from "../screens";
 import "react-native-gesture-handler";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
 import {
   MaterialIcons,
   AntDesign,
@@ -57,7 +57,7 @@ const tabButtons = [
 const MainTab = () => {
   return (
     <BottomTab.Navigator
-      initialRouteName="Account"
+      initialRouteName="Home"
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
